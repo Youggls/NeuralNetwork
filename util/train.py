@@ -8,10 +8,11 @@ import models.nn as nn
 import models.cnn as cnn
 import models.rnn as rnn
 
-MODEL_CNN_PATH = './out_model/cifar_cnn.pth'
-MODEL_RNN_PATH = './out_model/cifar_rnn.pth'
-MODEL_NN_PATH = './out_model/cifar_nn.pth'
 MODEL_DIR = './out_model/'
+MODEL_CNN_PATH = MODEL_DIR + 'cifar_cnn.pth'
+MODEL_RNN_PATH = MODEL_DIR + 'ifar_rnn.pth'
+MODEL_NN_PATH = MODEL_DIR + 'cifar_nn.pth'
+
 
 def start_train(round_num=2, net_type=None):
     net = nn.Net()
