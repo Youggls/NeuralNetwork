@@ -1,5 +1,6 @@
 from models import cnn
-
+from util import train, test
 if __name__ == '__main__':
-    cnn_net = cnn.load_net('./out_model/cifar_cnn.pth')
-    cnn.test_cnn(cnn_net)
+    net = train.start_train(net_type='nn')
+    # cnn_net = cnn.load_net('./out_model/cifar_cnn.pth')
+    test.test_nn(net)
