@@ -10,7 +10,7 @@ MODEL_DIR = './out_model/'
 MODEL_PATH = MODEL_DIR + 'cifar_svm.pkl'
 
 def train_svm():
-    model = svm.SVC(gamma='scale', decision_function_shape='ovo')
+    model = svm.SVC(gamma='scale', decision_function_shape='ovo', kernel='rbf')
     transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
     # 训练集
@@ -24,8 +24,8 @@ def train_svm():
     for image in data:
         images.append(image[0].view(-1, 3 * 32 * 32).numpy()[0, :])
         labels.append(image[1])
-    images = numpy.array(images)[0:1000]
-    labels = numpy.array(labels)[0:1000]
+    images = numpy.array(images)[0:10000]
+    labels = numpy.array(labels)[0:10000]
     # 图像数据的标签
     classes = ('plane', 'car', 'bird', 'cat',
            'deer', 'dog', 'frog', 'horse', 'ship', 'truck')

@@ -1,8 +1,8 @@
-from models import cnn, svm
+from models import cnn
 from util import train, test
 if __name__ == '__main__':
-    # net = train.start_train(net_type='nn')
+    net = train.start_train(net_type='lr')
     # cnn_net = cnn.load_net('./out_model/cifar_cnn.pth')
-    # test.test_nn(net)
-    model = svm.train_svm()
-    svm.test_svm(model)
+    test.test_nn(net)
+    # model = svm.train_svm()
+    # svm.test_svm(model)

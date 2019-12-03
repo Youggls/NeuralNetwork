@@ -7,12 +7,13 @@ import os
 import models.nn as nn
 import models.cnn as cnn
 import models.rnn as rnn
+import models.lr as lr
 
 MODEL_DIR = './out_model/'
 MODEL_CNN_PATH = MODEL_DIR + 'cifar_cnn.pth'
 MODEL_RNN_PATH = MODEL_DIR + 'ifar_rnn.pth'
 MODEL_NN_PATH = MODEL_DIR + 'cifar_nn.pth'
-
+MODEL_LR_PATH = MODEL_DIR + 'cifa_lr.pth'
 
 def start_train(round_num=2, net_type=None):
     net = nn.Net()
@@ -24,6 +25,9 @@ def start_train(round_num=2, net_type=None):
         elif net_type == 'nn':
             net = nn.Net()
             MODEL_PATH = MODEL_NN_PATH
+        elif net_type == 'lr':
+            net = lr.lr()
+            MODEL_PATH = MODEL_LR_PATH
 
     transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 

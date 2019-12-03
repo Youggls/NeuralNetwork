@@ -1,1 +1,1 @@
-__all__ = ['cnn', 'rnn', 'nn', 'svm']
+__all__ = ['cnn', 'rnn', 'nn', 'svm', 'lr']
