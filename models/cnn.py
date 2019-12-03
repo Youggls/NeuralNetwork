@@ -6,9 +6,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 MODEL_PATH = './out_model/cifar_cnn.pth'
-
+MODEL_DIR = './out_model/'
 def imshow(img):
     img = img / 2 + 0.5
     npimg = img.numpy()
@@ -72,6 +73,8 @@ def start_train() -> Net:
                 running_loss = 0.0
 
     print('Finished Training')
+    if os.path.exists(MODEL_DIR) == False:
+        os.makedirs(MODEL_DIR)
     torch.save(net.state_dict(), MODEL_PATH)
     return net
 
@@ -111,3 +114,8 @@ def test_cnn(net):
                 class_total[label] += 1
     for i in range(10):
         print('Accuracy of %5s : %2d %%' % (classes[i], 100 * class_correct[i] / class_total[i]))
+
+    # Total Loss
+    correct = sum(class_correct)
+    total = sum(class_total)
+    print('Accuracy of the network on the 10000 test images: %d %%' % (100 * correct / total))
